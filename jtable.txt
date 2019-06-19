@@ -1,0 +1,200 @@
+public class train extends JFrame {
+JFrame f;
+JPanel p;
+JComboBox sourcecom;
+JComboBox destcom;
+JComboBox gendcom;
+JTextField t3=new JTextField();
+JLabel idno;
+JTextField t1=new JTextField();
+JTextField t2=new JTextField();
+JLabel t4=new JLabel("");
+JLabel name;
+JLabel gender;
+JLabel source;
+JLabel destiny;
+JLabel contact;
+JButton save=new JButton("SAVE");
+JButton update=new JButton("UPDATE");
+JButton delete=new JButton("DELETE");
+JButton reset=new JButton("RESET");
+JTable table;
+
+public void trainreserve(){
+	f=new JFrame("Train Registration");
+	p=new JPanel();
+	String s1[]={"chennai","madurai","thirunelveli","delhi","bangalore","Hyderabad","Pune"};
+	String s2[]={"chennai","madurai","thirunelveli","delhi","bangalore","Hyderabad","Pune"};
+	String s3[]={"male","female","TG"};
+	
+	table=new JTable();
+	table.setBounds(30,40,200,300);
+	name=new JLabel("Name");
+	idno=new JLabel("ID NO");
+	gender=new JLabel("Gender");
+	source=new JLabel("source");
+	destiny=new JLabel("destination");
+	contact=new JLabel("ContactNo");
+	sourcecom=new JComboBox(s1);
+	destcom=new JComboBox(s2);
+	t3.getText();
+	gendcom=new JComboBox(s3);
+	t1.getText();
+	t2.getText();
+	DefaultTableModel model=new DefaultTableModel();
+	table.setModel(model);
+	model.addColumn();
+	
+	
+	
+	
+	p.add(idno);
+	p.add(t3);
+	p.add(name);
+	p.add(t1);
+	p.add(gender);
+	p.add(gendcom);
+	p.add(contact);
+	p.add(t2);
+	p.add(source);
+	p.add(sourcecom);
+	p.add(destiny);
+	p.add(destcom);
+	p.add(save);
+	p.add(update);
+	p.add(delete);
+	p.add(reset);
+	
+	p.add(t4);
+	p.setLayout(new GridLayout(9,9));
+	JScrollPane sp=new JScrollPane(table);
+	p.add(sp);
+	f.add(p);
+	f.setVisible(true);
+	
+	
+	delete.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ash","root","dsrc");
+				Statement stmt=con.createStatement();
+				PreparedStatement ps=con.prepareStatement("delete from train where ID_NO=?");
+				ps.setInt(1, Integer.parseInt(t3.getText()));
+				ps.executeUpdate();
+				
+				  
+				JOptionPane.showMessageDialog(f, "deleted");
+				
+			}
+				catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					System.out.println(e);
+				}
+			 catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+		}
+	});
+	update.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ash","root","dsrc");
+				Statement stmt=con.createStatement();
+				PreparedStatement ps=con.prepareStatement("update train set Name=?,contactno=?,gender=?,source=?,destination=? where ID_NO=?");
+				ps.setInt(6, Integer.parseInt(t3.getText()));
+				ps.setString(1, t1.getText());
+				ps.setString(3,gendcom.getSelectedItem().toString());
+				ps.setString(2,(t2.getText()) );
+				ps.setString(4,sourcecom.getSelectedItem().toString());
+				ps.setString(5,destcom.getSelectedItem().toString());
+				ps.executeUpdate();
+				JOptionPane.showMessageDialog(f, "updated");
+				
+			}
+				catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					System.out.println(e);
+				}
+			 catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			System.out.println("data updated");
+		
+			
+		}
+	});
+    
+    reset.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			t3.setText("");
+			t1.setText("");
+			gendcom.setSelectedItem("null");
+			t2.setText("");
+			sourcecom.setSelectedItem("");
+			destcom.setSelectedItem("");
+			JOptionPane.showMessageDialog(f, "reseted");
+		}
+	});
+	
+	
+	save.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ash","root","dsrc");
+				Statement stmt=con.createStatement();
+				PreparedStatement ps=con.prepareStatement("insert into train values(?,?,?,?,?,?)");
+				ps.setInt(1, Integer.parseInt(t3.getText()));
+				ps.setString(2, t1.getText());
+				ps.setString(3,gendcom.getSelectedItem().toString());
+				ps.setString(4,(t2.getText()) );
+				ps.setString(5,sourcecom.getSelectedItem().toString());
+				ps.setString(6,destcom.getSelectedItem().toString());
+				ps.executeUpdate();
+				ResultSet rs=ps.executeQuery();
+				
+				  while (rs.next()){
+					  
+			          model.addRow(colu));
+			           
+			            }
+				  table.setModel(model);
+				JOptionPane.showMessageDialog(f, "saved");
+				
+			}
+				catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					System.out.println(e);
+				}
+			 catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			System.out.println("data saved");
+		}
+	});
+}
+	
+	public static void main(String[] args) {
+		train tr=new train();
+		tr.trainreserve();
+	}
+
+	
+	
+	
+}
+

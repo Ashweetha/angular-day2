@@ -1,0 +1,377 @@
+2)   public class Testinheritance {
+public int a=10;
+public int b=10;
+}
+class Inherited extends Testinheritance{
+	int printSum(){
+		return a+b;
+	}
+}
+
+3) 
+	 void maths(int x,int y){
+		 
+	 }
+	void maths(float x,float y){
+		
+	}
+4)  public double maths(int a, double b)
+	   {
+		
+		  
+		  return a+b;
+	   }
+
+  
+	  public double maths (int a, int b)
+	   {
+		  
+		  return a-b;
+	   }
+
+5)      void english(int a)
+	 {
+		 
+	 }
+	void english(int a,double c)
+	 {
+		 
+	 }
+	void english(int a,double c,String d)
+	 {
+		 
+	 }
+	void english(int a,double c,int d,int b)
+	 {
+		 
+	 }
+	
+6)
+public int add(int a,int b){
+	return a+b;
+}
+public int add(int a,int b,String Name){
+	return a+b;
+}
+
+
+
+7)  public class Overide {
+public void run()
+{
+	
+}
+
+}
+class Inherited extends Overide{
+	public void run()
+	{
+		
+	}
+}
+
+8) public class Animal {
+String run(){
+	return ("Animal has four legs");
+}
+}
+class Dog extends Animal
+{
+	String bark(){
+		return ("Dog is barking"); 
+}
+	
+public class BabyDog extends Dog
+{
+			
+		
+		String drink()
+		{
+			return("BabyDog drinks milk");
+		}	
+		}
+		
+	}
+10)  public class Animal {
+	protected int numOfAnimals;
+	Animal(){
+		numOfAnimals=2;
+	}
+public	void legs(){
+		
+	}
+}
+
+class Dog extends Animal{
+	protected int numOfDogs;
+	Dog(){
+		numOfDogs=4;	
+	}
+public	void bark(){
+		
+	}
+}
+
+class BabyDog extends Dog{
+	protected int numOfBabyDogs;
+	BabyDog(){
+		numOfBabyDogs=5;	
+	}
+public	void drink(){
+		
+	}
+}
+
+class MyMain extends BabyDog {
+	MyMain(){
+	int	total=numOfAnimals+numOfDogs+numOfBabyDogs;
+	}
+	
+}
+
+11) public class Flight {
+protected String flightName; 
+protected int flightno;
+ public   Flight(String abc,int x)
+    {
+    	
+    }
+}
+
+ class Pilot extends Flight
+ {
+	 static String name;
+public  Pilot (String name){	
+ super("adsf",3);
+ this.name=name;
+ }	 
+ 
+ String displayDetails(){
+	 return (name.toUpperCase()+flightName.toLowerCase());
+ }
+ 
+public static void main(String[] args) {
+	Pilot p=new Pilot(name);
+	
+}
+ }
+
+12) 
+public abstract class Flight {
+ abstract double speed();
+	
+}
+class Domestic{
+	double as=9032.1;
+}
+class International{
+	int a=7892;
+	public static void main(String[] args) {
+		International t=new International();
+	}
+}
+
+14) public class TestConstructor {
+	public TestConstructor (){
+		System.out.println("gyggg");
+	}
+public	TestConstructor (String name,int count){
+		count=1;
+		 name="Test";
+	}
+public	TestConstructor (String name,int count,double value){
+	count=1;
+	 name="Test";
+	 value=30.0;
+}
+}
+
+15)public class Animal {
+public String eat(){
+	return ("gjhjuh");
+}
+
+	
+}
+class Dog extends Animal{
+	public String eat(){
+		return("Dog is eating...");
+	}
+	String test(){
+		return("dgy");
+	}
+	public static void main(String[] args) {
+		Animal b=new Animal();
+		System.out.println(b instanceof Animal);
+	}
+}	
+
+16) Dog d=new Dog();
+Animal a=(Animal)d;
+a.eat();
+
+17) interface testinterface{
+public	void print();
+public	void show();	
+	
+}
+public class ClassA implements testinterface {
+	public void print(){
+		System.out.println("hgsh");
+	}
+	public void show(){}
+public static void main(String[] args) {
+	testinterface t=new ClassA();
+	t.print();
+}
+}
+
+18) interface interfaceA
+{
+ 
+public int  getArea(int t,int c);	
+
+}
+interface  interfaceB 
+{
+public	int	 getPerimeter(int a,int b); 
+}
+public class A implements interfaceA,interfaceB{
+	int l,b;
+	public int  getArea(int l,int b){
+		return l*b;
+	}
+	public int	 getPerimeter(int l,int b){
+		
+		return (2*(l+b));
+	}
+	A(int c,int d){
+		l=c;
+		b=d;
+	}
+	public static void main(String[] args) {
+		A a=new A(7, 6);
+		a.getArea(10, 2);
+		a.getPerimeter(2, 5);
+	}	}
+	
+19) public abstract class Abs {
+protected String name;
+ public abstract  String play();	
+}
+abstract class Abs2 extends Abs{
+	protected   int numberOfStrings=5;
+}
+class Guitar extends Abs2{
+	
+public	Guitar(){
+	
+	}
+public	Guitar(int i){
+	numberOfStrings=6;
+name="Guitar";		
+	}
+
+public String play() {
+	name="Guitar";
+	return numberOfStrings+"-"+name;
+}
+	
+}
+
+20) interface measure{
+	public int pounds=5;
+	public int ounces=9;
+	public int weigh=150;
+	int weight();
+}
+class Weight implements measure{
+	int total,ounce,pound;
+	public int Weight(){
+	int	pound=Math.abs(pounds*pounds)+Math.abs((ounces*ounces) / 16);
+	int	ounce=Math.abs( (ounces*ounces)%16);
+		
+		if(total<weigh)
+			return total;
+		else
+			return weigh;
+	}
+public int method(){
+	total=pound+ounce;
+	return total;
+}
+
+public int weight() {
+	if(total<weigh)
+		return total;
+	else
+		return weigh;
+}
+}
+21) public class Human {
+
+
+class Heart{
+	private int age=70;
+	int display(int i){
+		System.out.println(age);
+		return age;
+	}}
+	public static void main(String[] args) {
+		Human.Heart t=new Human().new Heart();
+		t.display(10);
+		
+	}
+	
+}
+24) int array1[]={102,103,104,105};
+		
+			int count=0;
+		if(array1.length==array1.length)
+		{
+			for(int i=0;i<array1.length;i++)
+			{
+				if(array1[i]==array2[i]){
+					count++;
+			}if(count==4) return true;
+		}
+		
+	        
+	}return false;
+	}}
+25)if(s1.matches("[A-Z]{3}[0-9]{4}[A-Z]{1}"))
+{
+System.out.println("Valid");
+}
+else
+System.out.println("Invalid");
+}
+
+24)
+public class Composition {
+private int day;
+private int month;
+private int year;
+public Composition(){
+	day=1;
+	month=02;
+	year=1995;
+}
+String method(){
+	return day+"/"+month+"/"+year;
+}
+
+
+class Employee{
+	private int id;
+	private String name;
+	private String hireDate;
+	public Employee(){
+		id=2;
+		name="ghhj";
+		hireDate="12/04/1997";
+	}
+	String display(){
+		return id+name+hireDate;
+	}
+}}

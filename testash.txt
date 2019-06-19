@@ -1,0 +1,25 @@
+miniproject
+2)controller:
+
+
+//we set a values to the bean class by creating an object to that class
+
+
+Customer cust=new Customer();
+cust.setCustid(Integer.parseInt(request.getParameter("custid")));  //("custid")it is the name given in the text box name in jsp
+cust.setfirstName(Irequest.getParameter("firstName"));
+
+CustomerBO bo=new CustomerBO();
+try{
+boolean res=bo.validateCustomerDetails(cust);//passing the values of cust to validate details in the customerbo class
+if(res){
+re
+}
+
+
+
+
+}
+
+
+

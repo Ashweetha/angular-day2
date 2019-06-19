@@ -1,0 +1,242 @@
+2)	JFrame f=new JFrame(title);
+		f.setSize(width, height);
+		f.setVisible(true);
+	
+3)JFrame f=new JFrame("Sparta");
+			
+			f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			f.setVisible(true);	
+4)JFrame f=new JFrame("Sparta");
+				JPanel j=new JPanel();
+				f.add(j);
+				j.setLayout(new GridLayout());
+				Label t=new Label("Enter Name");
+				j.add(t);
+			    f.setVisible(true);
+
+5)JFrame f=new JFrame("Sparta");
+			JPanel p=new JPanel();
+			Label l=new Label("Enter Name");
+			TextField tf=new TextField(30);
+			f.add(p);
+			p.add(l);
+			p.add(tf);
+			f.setVisible(true);
+
+7)JFrame f=new JFrame("Sparta");
+				JPanel p=new JPanel();
+				JLabel l1=new JLabel("Enter Name");
+				JTextField tf=new JTextField(20);
+				tf.getText();
+				JLabel l2=new JLabel("Enter Password");
+				JPasswordField ps=new JPasswordField(20);
+				ps.getPassword();
+				JButton b=new JButton("Click Me");
+				p.add(l1);
+				p.add(tf);
+				p.add(l2);
+				p.add(ps);
+				p.add(b);
+				f.add(p);
+				f.setVisible(true);
+
+8)JFrame f=new JFrame("Sparta");
+		JPanel p=new JPanel();
+		JLabel l1=new JLabel("Enter Name");
+		JTextField tf=new JTextField(20);
+		tf.getText();
+		JLabel l2=new JLabel("Enter Password");
+		JPasswordField ps=new JPasswordField(20);
+		ps.getPassword();
+		JLabel l3=new JLabel("Enter City");
+		JComboBox cm=new JComboBox();
+		cm.addItem("India");
+		cm.addItem("Japan");
+		cm.addItem("Australia");
+		JButton b=new JButton("Register");
+		p.add(l1);
+		p.add(tf);
+		p.add(l2);
+		p.add(ps);
+		p.add(l3);
+		p.add(cm);
+		p.add(b);
+		f.add(p);
+		f.setVisible(true);
+9)JFrame f=new JFrame("Sparta");
+				JPanel p=new JPanel();
+				JLabel l1=new JLabel("Select Gender");
+				JLabel l2=new JLabel("Male");
+				JLabel l3=new JLabel("Female");
+				JRadioButton r1=new JRadioButton();
+				JRadioButton r2=new JRadioButton();
+				JButton b=new JButton("Register");
+				p.add(l1);
+				p.add(r1);
+				p.add(l2);
+				p.add(r2);
+				p.add(l3);
+				p.add(b);
+				f.add(p);
+				f.setVisible(true);
+10)JFrame f=new JFrame("Sparta");
+				JPanel p=new JPanel();
+				JLabel l1=new JLabel("Select Your Hobbies");
+				JCheckBox c1=new JCheckBox("Reading");
+				JCheckBox c2=new JCheckBox("Sleeping");
+				JCheckBox c3=new JCheckBox("Painting");
+				JCheckBox c4=new JCheckBox("Travelling");
+				JButton b=new JButton("Register");
+				p.add(l1);
+				p.add(c1);
+				p.add(c2);
+				p.add(c3);
+				p.add(c4);
+				p.add(b);
+				f.add(p);
+				f.setVisible(true);
+
+13)JFrame f=new JFrame("Sparta");
+				JPanel p=new JPanel();
+				JLabel l1=new JLabel("Name");
+				JTextField tf=new JTextField(20);
+				tf.getText();
+				JLabel l2=new JLabel("Password");
+				JPasswordField ps=new JPasswordField(20);
+				ps.getPassword();
+				JButton b=new JButton("Login");
+				JLabel l3=new JLabel("");
+				p.add(l1);
+				p.add(tf);
+				p.add(l2);
+				p.add(ps);
+				p.add(l3);
+				p.add(b);
+				p.setLayout(new GridLayout(3, 2));
+				f.add(p);
+				f.setVisible(true);
+
+14)public class UserCode implements ActionListener
+{ JFrame f;
+JTextField tf;
+JPasswordField ps; 
+JButton b;
+
+			public void makeFrame()
+			{
+			
+				/*
+				 * Write a Program to Make a Frame Screen According to the Expected Result.
+				 * Create a Login Screen
+				 * Use GridLayOut to arrange the items in row column format.
+				 * When you click on the login button if name is "sa" and password is "pass" display a dialog box with "Valid User"
+				 */
+				 f=new JFrame("Sparta");
+				JPanel p=new JPanel();
+				JLabel l1=new JLabel("Name");
+				 tf=new JTextField(20);
+				tf.getText();
+				JLabel l2=new JLabel("Password");
+				 ps=new JPasswordField(20);
+				ps.getPassword();
+				JLabel l3=new JLabel("");
+				 b=new JButton("Login");
+
+				p.add(l1);
+				p.add(tf);
+				p.add(l2);
+				p.add(ps);
+				p.add(l3);
+				p.add(b);
+				p.setLayout(new GridLayout(3, 2));
+				f.add(p);
+				f.setVisible(true);
+				b.addActionListener(this);
+			}
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				String user=tf.getText();
+				String password=new String(ps.getPassword());
+				if(user.equals("sa") && password.equals("pass"))
+				{
+					JOptionPane.showMessageDialog(f, "Valid User");
+					}
+				else
+				{
+					JOptionPane.showMessageDialog(f, "Invalid");
+				}
+			}
+}
+
+16)public class UserCode extends JFrame implements ActionListener
+{ JFrame f;
+JTextField tf;
+JPasswordField ps; 
+JButton b;
+JButton b2;
+
+
+			public void makeFrame()
+			{
+			
+				/*
+				 * Write a Program to Make a Frame Screen According to the Expected Result.
+				 * Create a Login Screen
+				 * Use GridLayOut to arrange the items in row column format.
+				 * When you click on the login button if name is "sa" and password is "pass" display a dialog box with "Valid User"
+				 */
+				 f=new JFrame("Sparta");
+				JPanel p=new JPanel();
+				JLabel l1=new JLabel("Name");
+				 tf=new JTextField(20);
+				tf.getText();
+				JLabel l2=new JLabel("Password");
+				 ps=new JPasswordField(20);
+				ps.getPassword();
+				
+				 b=new JButton("Login");
+				 b2=new JButton("Reset");
+				p.add(l1);
+				p.add(tf);
+				p.add(l2);
+				p.add(ps);
+				p.add(b2);
+				p.add(b);
+				p.setLayout(new GridLayout(3, 2));
+				f.add(p);
+				f.setVisible(true);
+				b.addActionListener(this);
+				
+			}
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				String user=tf.getText();
+				String password=new String(ps.getPassword());
+				if(user.equals("sa") && password.equals("pass"))
+				{
+					JOptionPane.showMessageDialog(f, "Valid User");
+					}
+				else
+				{
+					JOptionPane.showMessageDialog(f, "Invalid");
+				}
+			
+			b2.addActionListener(new ActionListener(){
+			
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				tf.setText("");
+				ps.setText("");
+				
+			}});
+}}
+
+
+
+
+				
+		
+		

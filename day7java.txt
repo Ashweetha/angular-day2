@@ -1,0 +1,103 @@
+1)  File f = new File(filePath);
+			    File[] files = f.listFiles();
+
+			    if (files != null)
+			    for (int i = 0; i < files.length; i++) {
+			    	 numberOfFiles++;
+			        File file = files[i];
+
+9) BufferedReader br=new BufferedReader(new FileReader(in));
+		String str="";
+		StringBuffer buff=new StringBuffer();
+		while((str=br.readLine())!=null){
+			buff.append(str);
+			buff.append("\n");
+		}
+	
+br.close();
+	return buff;
+}            
+
+11) 
+	 StringBuilder sb = new StringBuilder();
+     String strLine = "";
+     String str_data = "";
+     try {
+          BufferedReader br = new BufferedReader(new FileReader(input));
+          while (strLine != null)
+          {
+             if (strLine == null)
+               break;
+             str_data += strLine;
+             strLine = br.readLine();
+             
+         }
+           System.out.println(str_data);
+          br.close();
+     } catch (FileNotFoundException e) {
+         System.err.println("File not found");
+     } catch (IOException e) {
+         System.err.println("Unable to read the file.");
+     }
+	return str_data;
+
+12)    List<String> list = new ArrayList<String>();;
+        BufferedReader in = new BufferedReader(new FileReader(input));
+        String str;
+
+       
+        while((str = in.readLine()) != null){
+            list.add(str);
+        }
+
+		return list;
+
+13)String longest_word = "";
+	       String current;
+	       Scanner sc = new Scanner(new File(input));
+
+
+	       while (sc.hasNext())
+	       {
+	          current = sc.next();
+	           if (current.length() > longest_word.length()) 
+	           {
+	             longest_word = current;
+	           }
+
+	       }
+	         System.out.println("\n"+longest_word+"\n");
+	            return longest_word;  
+
+23)BufferedReader reader = new BufferedReader(new FileReader(filePath));
+		int lines = 0;
+		while (reader.readLine() != null) lines++;
+		reader.close();
+		return lines;
+
+15)BufferedReader br=new BufferedReader(new FileReader(input));
+String str[]=new String[3];
+int i=0;
+String st="";
+while((st=br.readLine())!=null && i<3)
+{
+	str[i]=st;
+	i++;
+ }
+br.close();
+		return str;
+
+16)	FileWriter fw= new FileWriter(inputFilePath);
+		BufferedWriter wr=new BufferedWriter(fw);
+		wr.write(inputData);
+		wr.close();   
+
+17)String A[]=new String[3];URI u=new URI(urlPath);
+		URL m=new URL(urlPath);
+	 A[0]= m.toString();
+	 A[1]= m.getAuthority();
+	 A[2]= m.getHost();
+	 A[3]= m.getPath();
+	 A[4]=Integer.toString(m.getPort());
+	 A[5]=u.getRawPath();
+		return A;  
